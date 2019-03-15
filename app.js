@@ -3,6 +3,9 @@ const querystring = require( 'querystring' )
 
 const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject ) => {
 
+	// Validations
+	if( !host || !url ) reject( 'No host or url specified' )
+
 	// Set up request parameters
 	const options = {
 	  hostname: host,
