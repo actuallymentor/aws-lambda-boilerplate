@@ -1,8 +1,10 @@
+// Set up chai
 const chai = require( 'chai' )
 const chaiAsPromised = require( 'chai-as-promised' )
 const { expect } = chai
 chai.use( chaiAsPromised )
 
+// App data etc
 const data = require( `${__dirname}/demodata.json` )
 const { post } = require( `${__dirname}/../app.js` )
 
