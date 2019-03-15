@@ -1,0 +1,16 @@
+{
+  "name": "generous-vpn-api",
+  "version": "0.0.1",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mentor Palokaj <mentor@palokaj.co> (http://github.com/actuallymentor)",
+  "license": "UNLICENSED",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^7.0.0"
+  }
