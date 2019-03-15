@@ -1,20 +1,19 @@
+const chai = require( 'chai' )
 const chaiAsPromised = require( 'chai-as-promised' )
-const { expect } = require( 'chai' )
-const env = {
-	host: process.env.sendyHosts
-}
-
+const { expect } = chai
 chai.use( chaiAsPromised )
 
 const data = require( `${__dirname}/demodata.json` )
-const app = require( `${__dirname}/../app.js` )
+const { post } = require( `${__dirname}/../app.js` )
 
-describe( 'Environment validation', f => {
+describe( 'POSTer validation', f => {
 
-	it( 'Rejects if X', function() {
+	it( 'Rejects without a host', function() {
+		return expect( post( undefined, '/', {} ) ).to.be.rejected
+	} )
 
-		return Promise
-
+	it( 'Rejects without a url path', function() {
+		return expect( post( 'https://', undefined, {} ) ).to.be.rejected
 	} )
 
 } )

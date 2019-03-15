@@ -34,4 +34,8 @@ const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject
 
 const multiHostPost = ( hosts = [], path = '', data = {} ) => Promise.all( hosts.map( host => post( host, url, data ) ) )
 
+if( process.env.test ) module.exports = {
+	post: post
+}
+
 exports.handler = f => f
