@@ -3,6 +3,9 @@ const querystring = require( 'querystring' )
 
 const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject ) => {
 
+	// Stringify data
+	data = querystring.stringify( data )
+
 	// Validations
 	if( !host || !url ) reject( 'No host or url specified' )
 
@@ -25,7 +28,7 @@ const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject
 	request.on( 'error', reject )
 
 	// Send json data
-	request.write( querystring.stringify( data ) )
+	request.write( data )
 
 	// End request
 	request.end( resolve )
