@@ -22,7 +22,13 @@ const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject
 	}
 
 	// Make the request, reject if status is not 200
-	const request = https.request( options, response => response.statusCode != 200 && reject(  ) )
+	const request = https.request( options, response => {
+
+		if( response.statusCode != 200 ) reject( response.statusCode )
+
+		response.on( 'data', data => resolve( data.toString('utf8') ) )
+
+	} )
 
 	// On error reject
 	request.on( 'error', reject )
@@ -31,7 +37,7 @@ const post = ( host ='', url = '', data = {} ) => new Promise( ( resolve, reject
 	request.write( data )
 
 	// End request
-	request.end( resolve )
+	request.end( )
 
 } )
 
